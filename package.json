@@ -1,0 +1,32 @@
+{
+  "name": "distribuidora-back-end",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ext ts --watch src --ignore '*.json' --exec \"node --loader ts-node/esm\" src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabriciocastrosoares/distribuidora-back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabriciocastrosoares/distribuidora-back-end/issues"
+  },
+  "homepage": "https://github.com/fabriciocastrosoares/distribuidora-back-end#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-status": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
