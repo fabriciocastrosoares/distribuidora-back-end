@@ -1,18 +1,38 @@
+import prisma from "../database/index.js";
+import { CreateProduct } from "../services/product-service.js";
+import { UpdateProduct } from "../services/product-service.js";
 
-import { Products } from "../protocols/index.js";
 
-const results: Products[] = [
-  { name: "Cerveja Amstel", description: "super gelada", stock: 120, available: true },
-  { name: "Cerveja Heineken", description: "super gelada", stock: 100, available: true },
-  { name: "Cerveja Eisenban", description: "super gelada", stock: 140, available: true },
-  { name: "Cerveja Korona", description: "super gelada", stock: 80, available: true }
-];
+export async function registerProduct(product: CreateProduct) {
+  const newProduct = await prisma.product.create({
+    data: product
+  });
+  return newProduct;
+};
 
-export function registerProduct(product: Products) {
-  results.push(product);
+export async function getProducts() {
+  const products = await prisma.product.findMany();
+  return products;
+};
+
+export async function getProductId(id: number) {
+  const product = await prisma.product.findUnique({
+    where: { id }
+  });
   return product;
-}
+};
 
-export function getProducts() {
-  return results;
-}
+export async function updateProduct(id: number, product: UpdateProduct) {
+  const productUpdate = await prisma.product.update({
+    where: { id },
+    data: product
+  });
+  return productUpdate;
+};
+
+export async function deleteProduct(id: number) {
+  const productResult = await prisma.product.delete({
+    where: { id }
+  });
+  return productResult;
+};
