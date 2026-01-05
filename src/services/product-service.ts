@@ -1,5 +1,5 @@
-import { Product } from "../generated/prisma/client.js";
-import * as productRepository from "../repositories/product-repository.js";
+import { Product } from "../generated/prisma/client";
+import * as productRepository from "../repositories/product-repository";
 
 export type CreateProduct = Omit<Product, "id">;
 export type UpdateProduct = CreateProduct;

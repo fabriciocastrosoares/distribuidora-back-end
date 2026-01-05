@@ -1,11 +1,12 @@
 {
   "name": "distribuidora-back-end",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch src --ext ts --exec node --loader ts-node/esm src/index.ts"
+    "test": "dotenv -e .env.test jest",
+    "prisma:migrate:test": "dotenv -e .env.test prisma migrate deploy",
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -27,12 +28,19 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.10.1",
     "@types/pg": "^8.16.0",
+    "@types/supertest": "^6.0.3",
     "dotenv": "^17.2.3",
+    "dotenv-cli": "^11.0.0",
+    "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "prisma": "^7.1.0",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
+    "ts-transform-paths": "^3.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3"
   }

@@ -1,7 +1,6 @@
-import prisma from "../database/index.js";
-import { CreateProduct } from "../services/product-service.js";
-import { UpdateProduct } from "../services/product-service.js";
-
+import prisma from "../database/index";
+import { CreateProduct } from "../services/product-service";
+import { UpdateProduct } from "../services/product-service";
 
 export async function registerProduct(product: CreateProduct) {
   const newProduct = await prisma.product.create({
